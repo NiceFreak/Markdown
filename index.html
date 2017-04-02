@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-    <style media="screen">
-        html {
-            font-size: 20px;
-        }
-        .content {
-            /* 弹性盒子 */
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: flex-start;
-        }
-        .markdown-text-input {
-            min-width: 20rem;
-            min-height: 25rem;
-            padding: 0.5rem;
-            resize: none;
-            vertical-align: baseline;
-            border: none;
-            border-right: 1px solid #ccc;
-            background: #F6F6F6;
-            font-family: 'Helvetica Neue', Arial, sans-serif ;
-            outline: none;
-        }
-        .markdown-text-output {
-            width: 20rem;
-            height: 25rem;
-            padding: 0.5rem;
-            background: #F6F6F6;
-            word-wrap: break-word;
-            overflow: auto;
-            font-family:"Times New Roman", Georgia, Serif;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <style media="screen">
+            html {
+                font-size: 20px;
+            }
+            .content {
+                /* 弹性盒子 */
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+            }
+            .markdown-text-input {
+                min-width: 20rem;
+                min-height: 25rem;
+                padding: 0.5rem;
+                resize: none;
+                vertical-align: baseline;
+                border: none;
+                border-right: 1px solid #ccc;
+                background: #F6F6F6;
+                font-family: 'Helvetica Neue', Arial, sans-serif ;
+                outline: none;
+            }
+            .markdown-text-output {
+                width: 20rem;
+                height: 25rem;
+                padding: 0.5rem;
+                background: #F6F6F6;
+                word-wrap: break-word;
+                overflow: auto;
+                font-family:"Times New Roman", Georgia, Serif;
+            }
+        </style>
 
-    <!-- 引入 remarkable 库 -->
-    <script src="http://cdn.bootcss.com/remarkable/1.7.1/remarkable.min.js"></script>
-    <title>Markdown Editor</title>
-</head>
-<body>
-    <div class="content">
-        <div class="markdown-input">
-            <h3 ><a href="http://www.jianshu.com/p/075d7cac8fef" target="blank">文本输入</a></h3>
-            <textarea class="markdown-text-input" placeholder="# 如果不清楚 Markdown 语法, 请点击标题"></textarea>
+        <!-- 引入 remarkable 库 -->
+        <script src="http://cdn.bootcss.com/remarkable/1.7.1/remarkable.min.js"></script>
+        <title>Markdown Editor</title>
+    </head>
+    <body>
+        <div class="content">
+            <div class="markdown-input">
+                <h3 ><a href="http://www.jianshu.com/p/075d7cac8fef" target="blank">文本输入</a></h3>
+                <textarea class="markdown-text-input" placeholder="# 如果不清楚 Markdown 语法, 请点击标题"></textarea>
+            </div>
+            <div class="markdown-output">
+                <h3>文本预览</h3>
+                <div class="markdown-text-output"></div>
+            </div>
         </div>
-        <div class="markdown-output">
-            <h3>文本预览</h3>
-            <div class="markdown-text-output"></div>
-        </div>
-    </div>
 
-    <!-- JavaScript -->
-    <script>
-        // const e = function(selector) {
-        //     return document.querySelector(selector)
-        // }
-        const e = (selector) => document.querySelector(selector)
-        // 创建一个 Remarkable 对象
-        var md = new Remarkable()
-        e('.markdown-text-input').addEventListener('keyup', function(event) {
-            var input = event.target.value
-            var output = md.render(input)
-            e('.markdown-text-output').innerHTML = output
-        })
-    </script>
-</body>
+        <!-- JavaScript -->
+        <script>
+            // const e = function(selector) {
+            //     return document.querySelector(selector)
+            // }
+            const e = (selector) => document.querySelector(selector)
+            // 创建一个 Remarkable 对象
+            var md = new Remarkable()
+            e('.markdown-text-input').addEventListener('keyup', function(event) {
+                var input = event.target.value
+                var output = md.render(input)
+                e('.markdown-text-output').innerHTML = output
+            })
+        </script>
+    </body>
 </html>
